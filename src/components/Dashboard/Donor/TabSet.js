@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 
-const TabSet = ({ tabObj, onTabChange }) => {
+const TabSet = ({ tabActive, counts, tabArr, onTabChange }) => {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        { tabObj.tabArr.map((item, i) => 
+        { tabArr.map((item, i) => 
             (
               <TouchableOpacity
                 onPress={() => onTabChange(item)}
                 key={item} 
                 style={[
                   styles.button,
-                  (item === tabObj.tabActive) && styles.buttonActive,
+                  (item === tabActive) && styles.buttonActive,
                   (i === 1) && styles.buttonRight,
                   ]} > 
                 <Text 
-                  style={[styles.buttonText, (item === tabObj.tabActive) && styles.buttonTextActive]} > 
+                  style={[styles.buttonText, (item === tabActive) && styles.buttonTextActive]} > 
                   { item }
                 </Text>
-                { (tabObj.counts[i] > 0) && 
+                { (counts[i] > 0) && 
                   <Text
                     style={[styles.countLeft, (i === 1) && styles.countRight]} > 
-                    { tabObj.counts[i] }
+                    { counts[i] }
                   </Text>
                 }
               </TouchableOpacity>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '100%',
     borderTopColor: '#bcbdbe',
-    borderTopWidth: 1,
+    borderTopWidth: 0.5,
   },
   wrapper: {
     alignSelf: 'center',

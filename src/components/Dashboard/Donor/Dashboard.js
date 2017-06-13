@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 
 import TabSet from './TabSet';
 import IncomingList from './IncomingList';
+import AcceptedList from './AcceptedList';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -18,26 +19,33 @@ class Dashboard extends Component {
         counts: [ 3, 2 ]
       },
       incomingData: [
-        {
-          bloodType: 'Whole Blood',
-          postedTime: 'Just now',
-          donationDate: '23 December 2018',
-          donationTime: '18:30',
-          location: "Children's Hospital 16, 2 Lui pastera St.",
-        },
-        {
-          bloodType: 'Whole Blood 2',
-          postedTime: 'Just now',
-          donationDate: '23 December 2018',
-          donationTime: '18:30',
-          location: "Children's Hospital 16, 2 Lui pastera St.",
-        }
+        // {
+        //   bloodType: 'Whole Blood',
+        //   postedTime: 'Just now',
+        //   donationDate: '23 December 2018',
+        //   donationTime: '18:30',
+        //   location: "Children's Hospital 16, 2 Lui pastera St.",
+        //   description: 'lorem ipsume lorem ipsumelorem ipsume lorem ipsume lorem ipsume ',
+        //   id: 1,
+        // },
+        // {
+        //   bloodType: 'Whole Blood 2',
+        //   postedTime: 'Just now',
+        //   donationDate: '23 December 2018',
+        //   donationTime: '18:30',
+        //   location: "Children's Hospital 16, 2 Lui pastera St.",
+        //   id: 2
+        // }
       ],
-      AcceptedData: [
+      acceptedData: [
 
       ],
     };
     this.onTabChange = this.onTabChange.bind(this);
+  }
+
+  componentDidMount() {
+    // sendng request here and setstate for 2 data lists
   }
 
   onTabChange(tabName) {
@@ -67,11 +75,19 @@ class Dashboard extends Component {
   render() {
     return (
       <View style={ styles.container }>
-        <IncomingList 
-          
-        />
+        { (this.state.tabObj.tabActive === 'Incoming') ? 
+          <IncomingList 
+            incomingData = { this.state.incomingData}
+          /> 
+          : 
+          <AcceptedList 
+            incomingData = { this.state.acceptedData}
+          />
+        }
         <TabSet 
-          tabObj = { this.state.tabObj }
+          tabActive = { this.state.tabObj.tabActive }
+          tabArr = { this.state.tabObj.tabArr }
+          counts = { [this.state.incomingData.length, this.state.acceptedData.length] }
           onTabChange = { this.onTabChange }
         />
       </View>
