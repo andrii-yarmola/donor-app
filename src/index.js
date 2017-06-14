@@ -12,8 +12,6 @@ const defaultState = {
 
 const store = createStore(appReducer, defaultState, applyMiddleware(thunk));
 
-//sagaMiddleware.run(sagas);
-
 const App = () => (
   <Provider store={store}>
     <Navigator />

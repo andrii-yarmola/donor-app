@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { StackNavigator, TabNavigator, addNavigationHelpers } from 'react-navigation';
 
@@ -39,11 +39,6 @@ const Navigator = ({ dispatch, nav }) => (
     })}
   />
 );
-
-Navigator.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  nav: PropTypes.object.isRequired
-};
 
 export const navReducer = (state, action) => {
   const newState = AppNavigator.router.getStateForAction(action, state);

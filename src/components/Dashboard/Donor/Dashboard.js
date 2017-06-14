@@ -19,23 +19,23 @@ class Dashboard extends Component {
         counts: [ 3, 2 ]
       },
       incomingData: [
-        // {
-        //   bloodType: 'Whole Blood',
-        //   postedTime: 'Just now',
-        //   donationDate: '23 December 2018',
-        //   donationTime: '18:30',
-        //   location: "Children's Hospital 16, 2 Lui pastera St.",
-        //   description: 'lorem ipsume lorem ipsumelorem ipsume lorem ipsume lorem ipsume ',
-        //   id: 1,
-        // },
-        // {
-        //   bloodType: 'Whole Blood 2',
-        //   postedTime: 'Just now',
-        //   donationDate: '23 December 2018',
-        //   donationTime: '18:30',
-        //   location: "Children's Hospital 16, 2 Lui pastera St.",
-        //   id: 2
-        // }
+        {
+          bloodType: 'Whole Blood',
+          postedTime: 'Just now',
+          donationDate: '23 December 2018',
+          donationTime: '18:30',
+          location: "Children's Hospital 16, 2 Lui pastera St.",
+          description: 'lorem ipsume lorem ipsumelorem ipsume lorem ipsume lorem ipsume ',
+          id: 1,
+        },
+        {
+          bloodType: 'Whole Blood 2',
+          postedTime: 'Just now',
+          donationDate: '23 December 2018',
+          donationTime: '18:30',
+          location: "Children's Hospital 16, 2 Lui pastera St.",
+          id: 2
+        }
       ],
       acceptedData: [
 

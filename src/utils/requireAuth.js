@@ -24,14 +24,6 @@ export default function(ComposedComponent) {
     }
   }
   
-  Authenticate.propTypes = {
-    isAuth: React.PropTypes.bool.isRequired
-  }
-  
-  Authenticate.contextTypes = {
-    router: React.PropTypes.object.isRequired
-  }
-  
   function mapStateToProps(state) {
     return {
       isAuth: state.auth.isAuth

@@ -40,11 +40,20 @@ const IncomingList = ({ incomingData }) => {
         :
         <View style={styles.holder}>
           <Text style={styles.heading}>
-            No requests
+            No new requests
           </Text>
           <Text style={styles.caption}>
             Thanks for checking this list.
           </Text>
+          <Text style={styles.caption}>
+            You are awesome.
+          </Text>
+          <TouchableOpacity style={styles.link}>
+            <Icon name="ios-refresh" size={22} color="#b1e460" />
+            <Text style={styles.linkText}>
+              Refresh
+            </Text>
+          </TouchableOpacity>
         </View>
       }
     </View>
@@ -54,6 +63,16 @@ const IncomingList = ({ incomingData }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  link: {
+    alignSelf: 'center',
+    flexDirection: 'row',
+    marginTop: 30
+  },
+  linkText: {
+    fontSize: 17,
+    color: '#b1e35f',
+    marginLeft: 10
   },
   heading: {
     fontSize: 32,
