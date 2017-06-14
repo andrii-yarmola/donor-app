@@ -44,6 +44,14 @@ class Dashboard extends Component {
     this.onTabChange = this.onTabChange.bind(this);
   }
 
+  componentWillMount() {
+    this.props.navigation.setParams({ titleName: this.state.tabObj.tabActive })
+  }
+
+  // componentWillReceiveProps() {
+  //   this.props.navigation.setParams({ titleName: this.state.tabObj.tabActive })
+  // }
+
   componentDidMount() {
     // sendng request here and setstate for 2 data lists
   }
@@ -54,7 +62,7 @@ class Dashboard extends Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
-      title: 'Incoming requests',
+      title: `${ (navigation.state.params)? navigation.state.params.titleName : '' } requests`,
       headerTintColor: 'white',
       headerRight: (
         <TouchableOpacity
