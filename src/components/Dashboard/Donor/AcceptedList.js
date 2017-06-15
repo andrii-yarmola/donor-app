@@ -4,49 +4,116 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const AcceptedList = ({ incomingData }) => {
   return (
-    <View style={styles.container}>
+     <View style={styles.container}>
       { incomingData.length > 0 ? 
         <FlatList
           data={incomingData}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.item}>
-              <View style={styles.textHolder}>
-                <Text style={styles.title}>
-                  { item.bloodType }
+            <View>
+              <TouchableOpacity style={styles.item}>
+                <View style={styles.textHolder}>
+                  <Text style={styles.title}>
+                    { item.bloodType }
+                  </Text>
+                  <Text style={styles.text}>
+                    { `${item.donationDate}, ${item.donationTime}` }
+                  </Text>
+                  <Text style={styles.text}>
+                    { item.location }
+                  </Text>
+                  { item.description && 
+                    <View style={styles.description}>
+                      <Icon name="md-information-circle" size={14} color='#e5e5ea' style={styles.icon}/>
+                      <Text style={styles.descriptionText}>
+                      { item.description }
+                      </Text>
+                    </View>
+                  }
+                </View>
+                <Icon name="ios-arrow-forward" size={20} color='#8e8e93' style={styles.sideIcon}/>
+                <Text style={styles.sideText}>
+                  { item.postedTime }
                 </Text>
-                <Text style={styles.text}>
-                  { `${item.donationDate}, ${item.donationTime}` }
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.actionLink}>
+                <Text style={styles.linkText}>
+                  Action one
                 </Text>
-                <Text style={styles.text}>
-                  { item.location }
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.actionLink}>
+                <Text style={styles.linkText}>
+                  Action two
                 </Text>
-                { item.description && 
-                  <View style={styles.description}>
-                    <Icon name="md-information-circle" size={14} color='#e5e5ea' style={styles.icon}/>
-                    <Text style={styles.descriptionText}>
-                    { item.description }
-                    </Text>
-                  </View>
-                }
-              </View>
-              <Icon name="ios-arrow-forward" size={20} color='#8e8e93' style={styles.sideIcon}/>
-              <Text style={styles.sideText}>
-                { item.postedTime }
-              </Text>
-            </TouchableOpacity>
+              </TouchableOpacity>
+               <TouchableOpacity style={styles.actionLink}>
+                <Text style={styles.linkText}>
+                  Action three
+                </Text>
+              </TouchableOpacity>
+            </View>
           )}
           keyExtractor={item => item.id}
         />
         :
-        <Text> asd </Text>
+        <View style={styles.holder}>
+          <Text style={styles.heading}>
+            No accepted requests
+          </Text>
+          <Text style={styles.caption}>
+            Thanks for checking this list.
+          </Text>
+          <Text style={styles.caption}>
+            You are awesome.
+          </Text>
+          <TouchableOpacity style={styles.link}>
+            <Icon name="ios-refresh" size={22} color="#b1e460" />
+            <Text style={styles.linkText}>
+              Refresh
+            </Text>
+          </TouchableOpacity>
+        </View>
       }
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  actionLink: {
+    borderBottomWidth: 0.5,
+    borderColor: '#bcbdbe',
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+    flex: 1,
+    alignItems: 'center'
+  },
   container: {
     flex: 1,
+  },
+  link: {
+    alignSelf: 'center',
+    flexDirection: 'row',
+    marginTop: 30
+  },
+  linkText: {
+    fontSize: 17,
+    color: '#b1e35f',
+    marginLeft: 10
+  },
+  heading: {
+    fontSize: 32,
+    color: '#8e8e93',
+    fontWeight: '100',
+    alignSelf: 'center',
+    marginBottom: 25
+  },
+  caption: {
+    fontSize: 13,
+    alignSelf: 'center',
+    color: '#8e8e93',
+  },
+  holder: {
+    paddingHorizontal: 30,
+    paddingVertical: 75
   },
   icon: {
     position: 'absolute',

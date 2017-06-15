@@ -4,6 +4,7 @@ import { StackNavigator, TabNavigator, addNavigationHelpers } from 'react-naviga
 
 import Welcome from './components/Welcome/Welcome';
 import TermsAndConditions from './components/TermsAndConditions';
+import Settings from './components/Settings';
 import RegistrationWrap from './components/Registration/RegistrationWrap';
 import Dashboard from './components/Dashboard/Donor/Dashboard';
 import RegistrationDone from './components/Registration/RegistrationDone';
@@ -23,7 +24,8 @@ const AppNavigator = StackNavigator(
     TermsAndConditions: { screen: TermsAndConditions },
     RegistrationWrap: { screen: RegistrationWrap },
     Dashboard: { screen: Dashboard },
-    RegistrationDone: { screen: RegistrationDone }
+    RegistrationDone: { screen: RegistrationDone },
+    Settings: { screen: Settings },
   }, 
   { 
     headerMode: 'screen',

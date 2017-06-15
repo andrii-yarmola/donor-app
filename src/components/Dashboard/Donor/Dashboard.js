@@ -19,6 +19,7 @@ class Dashboard extends Component {
         counts: [ 3, 2 ]
       },
       incomingData: [
+        // this initial state should be removed, get it from server in 'componentDidMount' by async action
         {
           bloodType: 'Whole Blood',
           postedTime: 'Just now',
@@ -38,6 +39,24 @@ class Dashboard extends Component {
         }
       ],
       acceptedData: [
+        {
+          bloodType: 'Apheresis',
+          postedTime: 'Just now',
+          donationDate: '23 December 2018',
+          donationTime: '18:30',
+          location: "Children's Hospital 16, 2 Lui pastera St.",
+          description: 'lorem ipsume lorem ipsumelorem ipsume lorem ipsume lorem ipsume ',
+          id: 3,
+        },
+        {
+          bloodType: 'Apheresis',
+          postedTime: 'Just now',
+          donationDate: '23 December 2018',
+          donationTime: '18:30',
+          location: "Children's Hospital 16, 2 Lui pastera St.",
+          description: 'lorem ipsume lorem ipsumelorem ipsume lorem ipsume lorem ipsume ',
+          id: 4,
+        },
 
       ],
     };
@@ -45,12 +64,10 @@ class Dashboard extends Component {
   }
 
   componentWillMount() {
-    this.props.navigation.setParams({ titleName: this.state.tabObj.tabActive })
+    this.props.navigation.setParams({
+      titleName: `${this.state.tabObj.tabActive} requests`
+    })
   }
-
-  // componentWillReceiveProps() {
-  //   this.props.navigation.setParams({ titleName: this.state.tabObj.tabActive })
-  // }
 
   componentDidMount() {
     // sendng request here and setstate for 2 data lists
@@ -58,17 +75,20 @@ class Dashboard extends Component {
 
   onTabChange(tabName) {
     this.setState({ tabObj : { ...this.state.tabObj, tabActive: tabName } });
+    this.props.navigation.setParams({
+      titleName: `${tabName} requests`
+    })
   }
 
   static navigationOptions = ({ navigation }) => {
     return {
-      title: `${ (navigation.state.params)? navigation.state.params.titleName : '' } requests`,
+      title: `${ (navigation.state.params)? navigation.state.params.titleName : '' }`,
       headerTintColor: 'white',
       headerRight: (
         <TouchableOpacity
           onPress={
             () => {
-              // navigate to settings screen
+              navigation.navigate('Settings')
             }
           }
           style={styles.backButton}
@@ -116,7 +136,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  //hotList: state.reddit.hotList
+  // hotList: state.reddit.hotList
 });
 
 function mapDispatchToProps(dispatch) {
