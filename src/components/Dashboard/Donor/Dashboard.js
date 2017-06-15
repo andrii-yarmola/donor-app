@@ -84,6 +84,7 @@ class Dashboard extends Component {
     return {
       title: `${ (navigation.state.params)? navigation.state.params.titleName : '' }`,
       headerTintColor: 'white',
+      headerLeft: null,
       headerRight: (
         <TouchableOpacity
           onPress={

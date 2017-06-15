@@ -21,8 +21,6 @@ const structure = t.struct({
   passwordAgain: t.String,
 });
 
-
-
 // form options
 const options = {
   // auto: 'placeholders',

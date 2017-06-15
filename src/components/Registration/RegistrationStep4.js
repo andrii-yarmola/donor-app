@@ -67,7 +67,10 @@ export default class RegistrationStep4 extends Component {
     var value = this.refs.form.getValue();
     if (value) {
       this.setState(value);
-    };  
+    };
+    for ( key in value ) {
+      AsyncStorage.setItem(key, value[key].toString());
+    }
   }
   
   render() {
