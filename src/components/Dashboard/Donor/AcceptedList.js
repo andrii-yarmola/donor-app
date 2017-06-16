@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const AcceptedList = ({ incomingData }) => {
+const AcceptedList = ({ incomingData, navigate }) => {
   return (
      <View style={styles.container}>
       { incomingData.length > 0 ? 
@@ -10,7 +10,9 @@ const AcceptedList = ({ incomingData }) => {
           data={incomingData}
           renderItem={({ item }) => (
             <View>
-              <TouchableOpacity style={styles.item}>
+              <TouchableOpacity 
+                onPress={() => navigate('RequestSingle', { requestId: item.id })}
+                style={styles.item}>
                 <View style={styles.textHolder}>
                   <Text style={styles.title}>
                     { item.bloodType }

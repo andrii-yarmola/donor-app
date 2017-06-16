@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const IncomingList = ({ incomingData }) => {
+const IncomingList = ({ incomingData, navigate }) => {
   return (
      <View style={styles.container}>
       { incomingData.length > 0 ? 
         <FlatList
           data={incomingData}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity 
+              onPress={() => navigate('RequestSingle', { requestId: item.id })}
+              style={styles.item}>
               <View style={styles.textHolder}>
                 <Text style={styles.title}>
                   { item.bloodType }

@@ -8,6 +8,7 @@ import Settings from './components/Settings';
 import RegistrationWrap from './components/Registration/RegistrationWrap';
 import Dashboard from './components/Dashboard/Donor/Dashboard';
 import RegistrationDone from './components/Registration/RegistrationDone';
+import RequestSingle from './components/Dashboard/Donor/RequestSingle';
 
 import * as actionCreators from './actions/actionCreators';
 
@@ -26,6 +27,7 @@ const AppNavigator = StackNavigator(
     Dashboard: { screen: Dashboard },
     RegistrationDone: { screen: RegistrationDone },
     Settings: { screen: Settings },
+    RequestSingle: { screen: RequestSingle },
   }, 
   { 
     headerMode: 'screen',

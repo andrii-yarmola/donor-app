@@ -107,10 +107,12 @@ class Dashboard extends Component {
         { (this.state.tabObj.tabActive === 'Incoming') ? 
           <IncomingList 
             incomingData = { this.state.incomingData}
+            navigate = { this.props.navigation.navigate }
           /> 
           : 
           <AcceptedList 
             incomingData = { this.state.acceptedData}
+            navigate = { this.props.navigation.navigate }
           />
         }
         <TabSet 
