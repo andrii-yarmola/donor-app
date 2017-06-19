@@ -21,7 +21,8 @@ class RequestSingle extends Component {
         donationDate: '23 December 2018',
         donationTime: '18:30',
         location: "Children's Hospital 16, 2 Lui pastera St. text text text",
-        description: 'lorem ipsume lorem ipsumelorem ipsume lorem ipsume lorem ipsume ',
+        patientInfo: 'lorem ipsume lorem ipsumelorem ipsume lorem ipsume lorem ipsume ',
+        description: 'descr lorem',
         id: 1, // the same as this.requestId, so maybe should be removed
       },
     };
@@ -85,7 +86,18 @@ class RequestSingle extends Component {
           <View style={ [styles.itemHolder, styles.itemHolderColumn] }>
             <Text style={ styles.heading }>Patient info </Text>
             <Text style={ [styles.content, styles.contentSmall] }>
-              { this.state.requestDeatials.location }
+              { this.state.requestDeatials.patientInfo }
+            </Text>
+          </View>
+          <View style={ [styles.itemHolder, styles.itemHolderColumn] }>
+            <Text style={ styles.heading }>Description </Text>
+            <Text style={ [styles.content, styles.contentSmall] }>
+              { this.state.requestDeatials.description }
+            </Text>
+          </View>
+          <View style={ [styles.itemHolder, styles.itemHolderColumn] }>
+            <Text style={ [styles.content, styles.contentSmall] }>
+              MAP PLACEHOLDER
             </Text>
           </View>
         </ScrollView>
